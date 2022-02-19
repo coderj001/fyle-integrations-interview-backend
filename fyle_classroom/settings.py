@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     'apps.teachers'
 ]
 
+# Third-Party Application definition
+INSTALLED_APPS.append('rest_framework')
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
