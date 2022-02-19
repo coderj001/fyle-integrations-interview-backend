@@ -4,9 +4,9 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('teachers', '0001_initial'),
-        ('internal', '0001_initial'),
-        ('students', '0001_initial'),
+        ("teachers", "0001_initial"),
+        ("internal", "0001_initial"),
+        ("students", "0001_initial"),
     ]
 
     raw_query = """
@@ -38,6 +38,4 @@ class Migration(migrations.Migration):
         ('This is assignment 8', 'D', 'GRADED', datetime('now'), datetime('now'), 2, 2);
     """
 
-    operations = [
-        migrations.RunSQL(raw_query)
-    ]
+    operations = [migrations.RunSQL(raw_query)]

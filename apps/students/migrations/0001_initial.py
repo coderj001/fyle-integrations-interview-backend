@@ -9,37 +9,89 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('teachers', '0001_initial'),
-        ('internal', '0001_initial'),
+        ("teachers", "0001_initial"),
+        ("internal", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Student',
+            name="Student",
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('created_at', models.DateTimeField(auto_now_add=True, help_text='Created at')),
-                ('updated_at', models.DateTimeField(auto_now=True, help_text='Updated at')),
-                ('user', models.OneToOneField(help_text='Reference to User model', on_delete=django.db.models.deletion.CASCADE, to='internal.user')),
+                ("id", models.AutoField(primary_key=True, serialize=False)),
+                (
+                    "created_at",
+                    models.DateTimeField(auto_now_add=True, help_text="Created at"),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, help_text="Updated at"),
+                ),
+                (
+                    "user",
+                    models.OneToOneField(
+                        help_text="Reference to User model",
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="internal.user",
+                    ),
+                ),
             ],
             options={
-                'db_table': 'students',
+                "db_table": "students",
             },
         ),
         migrations.CreateModel(
-            name='Assignment',
+            name="Assignment",
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('content', models.TextField(help_text='Content of the assignment')),
-                ('grade', models.CharField(choices=[('A', 'A'), ('B', 'B'), ('C', 'C'), ('D', 'D')], help_text='Grade of the assignment', max_length=1, null=True)),
-                ('state', models.CharField(choices=[('DRAFT', 'DRAFT'), ('SUBMITTED', 'SUBMITTED'), ('GRADED', 'GRADED')], help_text='State of the assignment', max_length=9)),
-                ('created_at', models.DateTimeField(auto_now_add=True, help_text='Created at')),
-                ('updated_at', models.DateTimeField(auto_now=True, help_text='Updated at')),
-                ('student', models.ForeignKey(help_text='Reference to Student model', on_delete=django.db.models.deletion.CASCADE, to='students.student')),
-                ('teacher', models.ForeignKey(help_text='Reference to Teacher model', on_delete=django.db.models.deletion.CASCADE, to='teachers.teacher')),
+                ("id", models.AutoField(primary_key=True, serialize=False)),
+                ("content", models.TextField(help_text="Content of the assignment")),
+                (
+                    "grade",
+                    models.CharField(
+                        choices=[("A", "A"), ("B", "B"), ("C", "C"), ("D", "D")],
+                        help_text="Grade of the assignment",
+                        max_length=1,
+                        null=True,
+                    ),
+                ),
+                (
+                    "state",
+                    models.CharField(
+                        choices=[
+                            ("DRAFT", "DRAFT"),
+                            ("SUBMITTED", "SUBMITTED"),
+                            ("GRADED", "GRADED"),
+                        ],
+                        help_text="State of the assignment",
+                        max_length=9,
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(auto_now_add=True, help_text="Created at"),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, help_text="Updated at"),
+                ),
+                (
+                    "student",
+                    models.ForeignKey(
+                        help_text="Reference to Student model",
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="students.student",
+                    ),
+                ),
+                (
+                    "teacher",
+                    models.ForeignKey(
+                        help_text="Reference to Teacher model",
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="teachers.teacher",
+                    ),
+                ),
             ],
             options={
-                'db_table': 'assignments',
+                "db_table": "assignments",
             },
         ),
     ]

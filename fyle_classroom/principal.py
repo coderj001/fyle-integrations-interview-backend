@@ -10,15 +10,16 @@ class Principal(BaseAuthentication):
     """
     Base Auth class
     """
+
     def authenticate(self, request):
         """
         Authentication function
         """
         principal = self.get_header(request)
         try:
-            user = User.objects.get(pk=principal['user_id'])
+            user = User.objects.get(pk=principal["user_id"])
         except User.DoesNotExist:
-            raise AuthenticationFailed('User not found for this principal')
+            raise AuthenticationFailed("User not found for this principal")
 
         return user, None
 
@@ -28,9 +29,9 @@ class Principal(BaseAuthentication):
         Extracts the header containing the X-Principal
         request.
         """
-        principal_header = request.headers.get('X-Principal')
+        principal_header = request.headers.get("X-Principal")
 
         if not principal_header:
-            raise AuthenticationFailed('No X-Principal header found')
+            raise AuthenticationFailed("No X-Principal header found")
 
         return json.loads(principal_header)

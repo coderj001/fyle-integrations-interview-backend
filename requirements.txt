@@ -3,3 +3,5 @@ djangorestframework==3.11.2
 pytest-django==4.4.0
 pytest==6.2.5
 pytest-cov==2.12.1
+black==22.1.0
+pytest-black==0.3.12

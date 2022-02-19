@@ -7,20 +7,30 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='User',
+            name="User",
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('email', models.EmailField(help_text='Email address', max_length=120, unique=True)),
-                ('created_at', models.DateTimeField(auto_now_add=True, help_text='Created at')),
-                ('updated_at', models.DateTimeField(auto_now=True, help_text='Updated at')),
+                ("id", models.AutoField(primary_key=True, serialize=False)),
+                (
+                    "email",
+                    models.EmailField(
+                        help_text="Email address", max_length=120, unique=True
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(auto_now_add=True, help_text="Created at"),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, help_text="Updated at"),
+                ),
             ],
             options={
-                'db_table': 'users',
+                "db_table": "users",
             },
         ),
     ]

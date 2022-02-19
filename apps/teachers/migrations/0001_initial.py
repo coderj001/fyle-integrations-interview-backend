@@ -9,20 +9,33 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('internal', '0001_initial'),
+        ("internal", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Teacher',
+            name="Teacher",
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('created_at', models.DateTimeField(auto_now_add=True, help_text='Created at')),
-                ('updated_at', models.DateTimeField(auto_now=True, help_text='Updated at')),
-                ('user', models.OneToOneField(help_text='Reference to User model', on_delete=django.db.models.deletion.CASCADE, to='internal.user')),
+                ("id", models.AutoField(primary_key=True, serialize=False)),
+                (
+                    "created_at",
+                    models.DateTimeField(auto_now_add=True, help_text="Created at"),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, help_text="Updated at"),
+                ),
+                (
+                    "user",
+                    models.OneToOneField(
+                        help_text="Reference to User model",
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="internal.user",
+                    ),
+                ),
             ],
             options={
-                'db_table': 'teachers',
+                "db_table": "teachers",
             },
         ),
     ]
